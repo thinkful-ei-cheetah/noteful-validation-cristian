@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
@@ -48,7 +48,7 @@ export default class Note extends React.Component {
             }}>
             <FontAwesomeIcon icon='trash-alt' />
             {' '}
-            remove
+            <NavLink to={'/'}>remove</NavLink>
           </button>
           <div className='Note__dates'>
             <div className='Note__dates-modified'>
