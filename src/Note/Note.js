@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
@@ -22,19 +22,20 @@ function deleteNoteRequest(noteId, callback) {
     }
     return res.json()
   })
-  .then(data => {
+  .then(() => {
     callback(noteId)
   })
   .catch(error => alert(error))
 
 }
 
-export default class Note extends React.Component {
+class Note extends React.Component {
 
   render() {
     return (
       <AppContext.Consumer>
-        { (context) => ( <div className='Note'>
+        { (context) => ( 
+        <div className='Note'>
           <h2 className='Note__title'>
             <Link to={`/note/${this.props.id}`}>
               {this.props.name}
@@ -44,11 +45,13 @@ export default class Note extends React.Component {
             className='Note__delete' 
             type='button'
             onClick={() => {
-              deleteNoteRequest(this.props.id, context.delete)
+              deleteNoteRequest(this.props.id, context.deleteNote);
+              this.props.history.push('/')
+
             }}>
             <FontAwesomeIcon icon='trash-alt' />
             {' '}
-            <NavLink to={'/'}>remove</NavLink>
+            remove
           </button>
           <div className='Note__dates'>
             <div className='Note__dates-modified'>
@@ -65,3 +68,5 @@ export default class Note extends React.Component {
     )
   }
 }
+
+export default withRouter(Note);
