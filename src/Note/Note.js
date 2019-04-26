@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
 import AppContext from '../Context/AppContext';
 
+
 function deleteNoteRequest(noteId, callback) {
   const deleteURL = `http://localhost:9090/notes/${noteId}`
   
