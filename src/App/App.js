@@ -99,7 +99,6 @@ class App extends Component {
   }
 
   renderMainRoutes() {
-    const {folders } = this.state
     return (
       <>
         {['/', '/folder/:folderId'].map(path =>
@@ -120,14 +119,7 @@ class App extends Component {
         />
         <Route
           path='/add-note'
-          render={routeProps => {
-            return (
-              <AddNote
-                {...routeProps}
-                folders={folders}
-              />
-            )
-          }}
+          component={AddNote}
         />
       </>
     )

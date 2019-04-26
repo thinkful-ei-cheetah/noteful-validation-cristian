@@ -48,7 +48,3 @@ export default class NoteListNav extends React.Component {
   
 }
 
-// NoteListMain.defaultProps = {
-//   notes: [],
-// }
-

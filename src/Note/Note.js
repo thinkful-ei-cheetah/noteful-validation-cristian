@@ -4,6 +4,8 @@ import { format } from 'date-fns'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
 import AppContext from '../Context/AppContext';
+import PropTypes from 'prop-types';
+
 
 
 function deleteNoteRequest(noteId, callback) {
@@ -68,6 +70,12 @@ class Note extends React.Component {
       </AppContext.Consumer>
     )
   }
+}
+
+Note.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  modified: PropTypes.string
 }
 
 export default withRouter(Note);
