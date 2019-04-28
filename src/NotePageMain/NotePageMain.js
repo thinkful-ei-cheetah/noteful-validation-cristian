@@ -29,8 +29,3 @@ export default class NotePageMain extends React.Component {
   }
 }
 
-// NotePageMain.defaultProps = {
-//   note: {
-//     content: '',
-//   }
-// }
